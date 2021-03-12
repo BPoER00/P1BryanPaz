@@ -16,6 +16,10 @@ public class DatosAlumno {
     private String Nombre;
     private String Curso;
     
+    public DatosAlumno(){
+     
+    }
+    
     public DatosAlumno(int _Id, String _Carne, String _Nombre, String _Curso){
         this.Id = _Id;
         this.Carne = _Carne;
