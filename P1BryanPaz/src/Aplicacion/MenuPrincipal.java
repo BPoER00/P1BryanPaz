@@ -61,13 +61,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 jLabel2MouseClicked(evt);
             }
         });
-        PanelInsertar.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 10, -1, -1));
+        PanelInsertar.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, -1, -1));
 
         PanelMostrar.setBackground(new java.awt.Color(255, 255, 255));
         PanelMostrar.setLayout(new java.awt.BorderLayout());
-        PanelInsertar.add(PanelMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 930, 510));
+        PanelInsertar.add(PanelMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 290, 440));
 
-        getContentPane().add(PanelInsertar, new org.netbeans.lib.awtextra.AbsoluteConstraints(-1040, 0, 1040, 580));
+        getContentPane().add(PanelInsertar, new org.netbeans.lib.awtextra.AbsoluteConstraints(-390, 0, 390, 570));
 
         jPanel1.setBackground(new java.awt.Color(46, 65, 75));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -160,7 +160,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             PanelMostrar.add(PanelInsert);
             PanelArboles.setVisible(false);
             PanelInsert.setVisible(true);
-            Animacion.Animacion.mover_derecha(-1040, 0, 1, 2, PanelInsertar);
+            Animacion.Animacion.mover_derecha(-390, 0, 1, 2, PanelInsertar);
         
     }//GEN-LAST:event_BtnInsertarMouseClicked
 
@@ -168,12 +168,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
             PanelMostrar.add(PanelArboles);
             PanelArboles.setVisible(true);
             PanelInsert.setVisible(false);
-            Animacion.Animacion.mover_derecha(-1040, 0, 1, 2, PanelInsertar);
+            Animacion.Animacion.mover_derecha(-390, 0, 1, 2, PanelInsertar);
             
     }//GEN-LAST:event_BtnArbolesMouseClicked
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-            Animacion.Animacion.mover_izquierda(0, -1040, 1, 2, PanelInsertar);
+            Animacion.Animacion.mover_izquierda(0, -390, 1, 2, PanelInsertar);
     }//GEN-LAST:event_jLabel2MouseClicked
 
     /**

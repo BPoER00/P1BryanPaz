@@ -9,12 +9,12 @@ package Aplicacion;
  *
  * @author Bryan Paz Ramirez
  */
-public class PanelArbolDatos extends javax.swing.JPanel {
+public class MostrarRegistros extends javax.swing.JPanel {
 
     /**
-     * Creates new form PanelArbolDatos
+     * Creates new form MostrarRegistros
      */
-    public PanelArbolDatos() {
+    public MostrarRegistros() {
         initComponents();
     }
 
@@ -31,11 +31,11 @@ public class PanelArbolDatos extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 290, Short.MAX_VALUE)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 450, Short.MAX_VALUE)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 

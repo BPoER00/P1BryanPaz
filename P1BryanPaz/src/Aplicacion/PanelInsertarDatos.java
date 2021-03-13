@@ -11,11 +11,12 @@ package Aplicacion;
  */
 public class PanelInsertarDatos extends javax.swing.JPanel {
 
-    /**
-     * Creates new form PanelInsertarDatos
-     */
+    GuardarRegistros Guardar = new GuardarRegistros();
+    MostrarRegistros Mostrar = new MostrarRegistros();
+    
     public PanelInsertarDatos() {
         initComponents();
+        
     }
 
     /**
@@ -28,28 +29,88 @@ public class PanelInsertarDatos extends javax.swing.JPanel {
     private void initComponents() {
 
         PanelDatos = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        BtnRegistros = new javax.swing.JLabel();
+        BtnAgregar = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(0, 0, 0));
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new java.awt.BorderLayout());
 
         PanelDatos.setBackground(new java.awt.Color(0, 0, 0));
+        PanelDatos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout PanelDatosLayout = new javax.swing.GroupLayout(PanelDatos);
-        PanelDatos.setLayout(PanelDatosLayout);
-        PanelDatosLayout.setHorizontalGroup(
-            PanelDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        PanelDatosLayout.setVerticalGroup(
-            PanelDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 458, Short.MAX_VALUE)
-        );
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        BtnRegistros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Registros.png"))); // NOI18N
+        BtnRegistros.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BtnRegistrosMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                BtnRegistrosMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                BtnRegistrosMouseExited(evt);
+            }
+        });
+        jPanel1.add(BtnRegistros, new org.netbeans.lib.awtextra.AbsoluteConstraints(-170, 290, -1, -1));
+
+        BtnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Insertar.png"))); // NOI18N
+        BtnAgregar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BtnAgregarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                BtnAgregarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                BtnAgregarMouseExited(evt);
+            }
+        });
+        jPanel1.add(BtnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(-170, 210, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        jLabel3.setText("Registros");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
+
+        PanelDatos.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-4, 0, 290, 450));
 
         add(PanelDatos, java.awt.BorderLayout.LINE_START);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void BtnAgregarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnAgregarMouseEntered
+        Animacion.Animacion.mover_derecha(-170, 0, 1, 2, BtnAgregar);
+    }//GEN-LAST:event_BtnAgregarMouseEntered
+
+    private void BtnAgregarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnAgregarMouseExited
+        Animacion.Animacion.mover_izquierda(0, -170, 1, 2, BtnAgregar);
+    }//GEN-LAST:event_BtnAgregarMouseExited
+
+    private void BtnRegistrosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnRegistrosMouseEntered
+        Animacion.Animacion.mover_derecha(-170, 0, 1, 2, BtnRegistros);
+    }//GEN-LAST:event_BtnRegistrosMouseEntered
+
+    private void BtnRegistrosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnRegistrosMouseExited
+        Animacion.Animacion.mover_izquierda(0, -170, 1, 2, BtnRegistros);
+    }//GEN-LAST:event_BtnRegistrosMouseExited
+
+    private void BtnAgregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnAgregarMouseClicked
+        Opciones Abrir = new Opciones("Insertar");
+        Abrir.setVisible(true);
+    }//GEN-LAST:event_BtnAgregarMouseClicked
+
+    private void BtnRegistrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnRegistrosMouseClicked
+        Opciones Abrir = new Opciones("Registros");
+        Abrir.setVisible(true);
+    }//GEN-LAST:event_BtnRegistrosMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel BtnAgregar;
+    private javax.swing.JLabel BtnRegistros;
     private javax.swing.JPanel PanelDatos;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

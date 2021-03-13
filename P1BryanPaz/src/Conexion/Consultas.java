@@ -33,24 +33,12 @@ public class Consultas {
             Consultar.setString(2, Estudiante.getCarne());
             Consultar.setString(3, Estudiante.getCurso());
             
-            ResultSet Resultado = Consultar.executeQuery();
-            
-            if(!Resultado.equals(null)){
-                System.out.println("Datos Guardados Correctamente.");
-            }else{
-                System.out.println("Error Al Guardar Los Datos");
-            }
+            Consultar.executeUpdate();
             
             Conn.close();
             
         }catch(Exception e){
-            
-            JOptionPane.showMessageDialog(null, "No es posible conectarse con la base de datos por lo que se guardara en un "
-                    + "documento txt llamado Parcial1", "Advertencia", JOptionPane.OK_OPTION);
-            
-            ArchivoPlano Archivo = new ArchivoPlano();
-            Archivo.insertar(Estudiante);
-            
+            System.out.println("Error: "+e);
         }
     }
     
