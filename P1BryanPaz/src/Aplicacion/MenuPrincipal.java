@@ -13,10 +13,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
     
     boolean cambiarInsertar = false;
     boolean cambiarArbol = false;
+    PanelInsertarDatos PanelInsert = new PanelInsertarDatos();
+    PanelArbolDatos PanelArboles = new PanelArbolDatos();
     public MenuPrincipal() {
         
         initComponents();
         BtnComprimir.setVisible(false);
+        PanelArboles.setVisible(false);
+        PanelInsert.setVisible(false);
+        
     }
 
     /**
@@ -30,7 +35,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         PanelInsertar = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
+        PanelMostrar = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         BtnComprimir = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -58,20 +63,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         PanelInsertar.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 10, -1, -1));
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 930, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 510, Short.MAX_VALUE)
-        );
-
-        PanelInsertar.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 930, 510));
+        PanelMostrar.setBackground(new java.awt.Color(255, 255, 255));
+        PanelMostrar.setLayout(new java.awt.BorderLayout());
+        PanelInsertar.add(PanelMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 930, 510));
 
         getContentPane().add(PanelInsertar, new org.netbeans.lib.awtextra.AbsoluteConstraints(-1040, 0, 1040, 580));
 
@@ -162,13 +156,18 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnComprimirMouseClicked
 
     private void BtnInsertarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnInsertarMouseClicked
-        
+            
+            PanelMostrar.add(PanelInsert);
+            PanelArboles.setVisible(false);
+            PanelInsert.setVisible(true);
             Animacion.Animacion.mover_derecha(-1040, 0, 1, 2, PanelInsertar);
         
     }//GEN-LAST:event_BtnInsertarMouseClicked
 
     private void BtnArbolesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnArbolesMouseClicked
-
+            PanelMostrar.add(PanelArboles);
+            PanelArboles.setVisible(true);
+            PanelInsert.setVisible(false);
             Animacion.Animacion.mover_derecha(-1040, 0, 1, 2, PanelInsertar);
             
     }//GEN-LAST:event_BtnArbolesMouseClicked
@@ -218,6 +217,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel BtnInsertar;
     private javax.swing.JLabel BtnSalir;
     private javax.swing.JPanel PanelInsertar;
+    private javax.swing.JPanel PanelMostrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
@@ -225,6 +225,5 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }
