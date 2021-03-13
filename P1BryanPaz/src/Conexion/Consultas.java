@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import Conexion.ConexionDB;
+import javax.swing.JOptionPane;
 import p1bryanpaz.DatosAlumno;
 
 /*
@@ -43,7 +44,13 @@ public class Consultas {
             Conn.close();
             
         }catch(Exception e){
-            System.out.println("Error: "+e);
+            
+            JOptionPane.showMessageDialog(null, "No es posible conectarse con la base de datos por lo que se guardara en un "
+                    + "documento txt llamado Parcial1", "Advertencia", JOptionPane.OK_OPTION);
+            
+            ArchivoPlano Archivo = new ArchivoPlano();
+            Archivo.insertar(Estudiante);
+            
         }
     }
     

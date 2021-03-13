@@ -5,6 +5,8 @@
  */
 package p1bryanpaz;
 
+import Aplicacion.MenuPrincipal;
+
 /**
  *
  * @author Bryan Paz Ramirez
@@ -15,7 +17,8 @@ public class P1BryanPaz {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        MenuPrincipal abrir = new MenuPrincipal();
+        abrir.setVisible(true);
     }
     
 }
