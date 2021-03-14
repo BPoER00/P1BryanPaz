@@ -6,6 +6,7 @@
 package Aplicacion;
 
 import Conexion.Consultas;
+import javax.swing.JOptionPane;
 import p1bryanpaz.DatosAlumno;
 
 /**
@@ -24,8 +25,10 @@ public class GuardarRegistros extends javax.swing.JPanel {
     
     public void insertarDatos(){
         CmbCurso.addItem("Programacion III");
-        CmbCurso.addItem("Programacion II");
-        CmbCurso.addItem("Programacion I");
+        CmbCurso.addItem("Emprendedores De Negocios");
+        CmbCurso.addItem("Metodos Numericos");
+        CmbCurso.addItem("Estadistica II");
+        CmbCurso.addItem("Electronica Analogica");
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -96,7 +99,7 @@ public class GuardarRegistros extends javax.swing.JPanel {
             Consultas datos = new Consultas();
             datos.Guardar(Alumno);
         }else{
-            System.out.println("Llene cada uno de los campos");
+            JOptionPane.showMessageDialog(null, "Llene cada uno de los campos", "Advertencia", JOptionPane.OK_OPTION);
         }
     }//GEN-LAST:event_jButton1MouseClicked
 

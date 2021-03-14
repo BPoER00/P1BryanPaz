@@ -1,6 +1,7 @@
 package Conexion;
 
 
+import Aplicacion.Editar;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -93,13 +94,7 @@ public class Consultas {
             
             Consultar.setInt(1, Id);
             
-            ResultSet Resultado = Consultar.executeQuery();
-            
-            if(!Resultado.equals(null)){
-                System.out.println("Datos Eliminados Correctamente.");
-            }else{
-                System.out.println("Error Al Eliminar Los Datos");
-            }
+            Consultar.executeUpdate();
             
             Conn.close();
             
@@ -132,11 +127,9 @@ public class Consultas {
     
     
     
-        public List<DatosAlumno> Buscar(int Id){
+    public void Buscar(int Id){
         
         boolean DatoEncontrado = false;
-        List<DatosAlumno> ListaDatos = new ArrayList<>();
-        
         try{
             
             ConexionDB Conectar = new ConexionDB();
@@ -157,9 +150,10 @@ public class Consultas {
                 Estudiante.setCarne(Resultado.getString("Carne"));
                 Estudiante.setCurso(Resultado.getString("Curso"));
                 
-                ListaDatos.add(Estudiante);
+                Editar enviar = new Editar();
+                enviar.edit(Estudiante);
             }
-            
+                
             Conn.close();
             
         }catch(Exception e){
@@ -168,7 +162,5 @@ public class Consultas {
         if(!DatoEncontrado){
             System.out.println("Estudiante No Encontrado");
         }
-        
-        return ListaDatos.isEmpty() ? new ArrayList<>() : ListaDatos;
     }
 }
