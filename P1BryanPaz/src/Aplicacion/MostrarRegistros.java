@@ -5,7 +5,12 @@
  */
 package Aplicacion;
 
+import Conexion.ConexionDB;
 import Conexion.Consultas;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
@@ -19,22 +24,54 @@ import p1bryanpaz.DatosAlumno;
  */
 public class MostrarRegistros extends javax.swing.JPanel {
     
-    DefaultTableModel Modelo = new DefaultTableModel();
+    
     Consultas Consul = new Consultas();
+    PreparedStatement Consultar;
     
     public MostrarRegistros() {
         initComponents();
-        //Mostrar();
+        Mostrar();
     }
 
     public void Mostrar(){
-        Modelo.addColumn("Id");
-        Modelo.addColumn("Carne");
-        Modelo.addColumn("Nombre");
-        Modelo.addColumn("Curso");
         
         
-        Tabla.setModel(Modelo);
+        try{
+            DefaultTableModel Modelo = new DefaultTableModel();
+            Modelo.addColumn("Id");
+            Modelo.addColumn("Carne");
+            Modelo.addColumn("Nombre");
+            Modelo.addColumn("Curso");
+            Tabla.setModel(Modelo);
+            
+            ConexionDB Conectar = new ConexionDB();
+            Connection Conn = Conectar.AbrirConexion();
+            
+            Consultar = Conn.prepareStatement("SELECT * FROM Estudiantes");
+            
+            ResultSet Resultado = Consultar.executeQuery();
+            
+            ResultSetMetaData rsmd = Resultado.getMetaData();
+            int cantidadColumnas = rsmd.getColumnCount();
+            
+            while(Resultado.next()){
+               
+                
+                Object[] filas = new Object[cantidadColumnas];
+            
+                for(int i = 0; i < cantidadColumnas; i++){
+                filas[i] = Resultado.getObject(i + 1);
+            }
+            
+            Modelo.addRow(filas);
+                
+            }
+                
+            Conn.close();
+            
+        }catch(Exception e){
+            System.out.println("Error: "+e);
+        }
         
     }
     @SuppressWarnings("unchecked")
@@ -68,9 +105,19 @@ public class MostrarRegistros extends javax.swing.JPanel {
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 490, 220));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Buscar.png"))); // NOI18N
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 60, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Actualizar.png"))); // NOI18N
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+        });
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 60, -1, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Editar.png"))); // NOI18N
@@ -109,6 +156,57 @@ public class MostrarRegistros extends javax.swing.JPanel {
         Abrir.setVisible(true);
     }//GEN-LAST:event_jLabel3MouseClicked
 
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        buscar();
+    }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+         Mostrar();
+    }//GEN-LAST:event_jLabel2MouseClicked
+    
+     public void buscar(){
+        int Id = Integer.parseInt(TxtOpciones.getText());
+        boolean DatoEncontrado = false;
+        try{
+            DefaultTableModel Modelo = new DefaultTableModel();
+            Modelo.addColumn("Id");
+            Modelo.addColumn("Carne");
+            Modelo.addColumn("Nombre");
+            Modelo.addColumn("Curso");
+            Tabla.setModel(Modelo);
+            
+            ConexionDB Conectar = new ConexionDB();
+            Connection Conn = Conectar.AbrirConexion();
+            
+            Consultar = Conn.prepareStatement("SELECT * FROM Estudiantes WHERE Id = ?");
+            
+            Consultar.setInt(1, Id);
+            
+            ResultSet Resultado = Consultar.executeQuery();
+            
+            ResultSetMetaData rsmd = Resultado.getMetaData();
+            int cantidadColumnas = rsmd.getColumnCount();
+            
+            while(Resultado.next()){
+                DatoEncontrado = true;
+
+                Object[] filas = new Object[cantidadColumnas];
+            
+                for(int i = 0; i < cantidadColumnas; i++){
+                filas[i] = Resultado.getObject(i + 1);
+                }
+               Modelo.addRow(filas); 
+            }
+                
+            Conn.close();
+            
+        }catch(Exception e){
+            System.out.println("Error: "+e);
+        }
+        if(!DatoEncontrado){
+            System.out.println("Estudiante No Encontrado");
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable Tabla;

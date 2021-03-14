@@ -5,7 +5,11 @@
  */
 package Aplicacion;
 
+import Conexion.ConexionDB;
 import Conexion.Consultas;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import p1bryanpaz.DatosAlumno;
 
     
@@ -15,6 +19,7 @@ public class Editar extends javax.swing.JFrame {
     String Carne;
     String Nombre;
     String Curso;
+    PreparedStatement Consultar;
     public Editar() {
         initComponents();
     }
@@ -46,21 +51,21 @@ public class Editar extends javax.swing.JFrame {
 
         LbCurso.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         LbCurso.setText("Curso:");
-        getContentPane().add(LbCurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, -1, -1));
+        getContentPane().add(LbCurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, -1, -1));
 
-        MostrarId.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        MostrarId.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         MostrarId.setText("Id:");
         getContentPane().add(MostrarId, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 110, -1, -1));
 
         LbNombre.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         LbNombre.setText("Nombre:");
-        getContentPane().add(LbNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, -1, -1));
+        getContentPane().add(LbNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, -1, -1));
 
-        MostrarNombre.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        MostrarNombre.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         MostrarNombre.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         getContentPane().add(MostrarNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, 300, 40));
 
-        MostrarCarne.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        MostrarCarne.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         MostrarCarne.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         getContentPane().add(MostrarCarne, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, 300, 40));
 
@@ -79,9 +84,9 @@ public class Editar extends javax.swing.JFrame {
 
         LbCarne.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         LbCarne.setText("Carne:");
-        getContentPane().add(LbCarne, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, -1, -1));
+        getContentPane().add(LbCarne, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, -1, -1));
 
-        TxtBuscar.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        TxtBuscar.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         TxtBuscar.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         getContentPane().add(TxtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 30, 130, 40));
 
@@ -106,20 +111,17 @@ public class Editar extends javax.swing.JFrame {
         LbId.setText("Id:");
         getContentPane().add(LbId, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, -1, -1));
 
-        MostrarCurso.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        MostrarCurso.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         MostrarCurso.setText("Curso");
-        getContentPane().add(MostrarCurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, -1, -1));
+        getContentPane().add(MostrarCurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 330, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnBuscarMouseClicked
-        int Dato = Integer.parseInt(TxtBuscar.getText());
-        DatosAlumno Estudiante = new DatosAlumno();
-        
-        Consultas enviar = new Consultas();
-        enviar.Buscar(Dato);
-        
+        buscar();
+        DatosAlumno alumno = new DatosAlumno();
+
     }//GEN-LAST:event_BtnBuscarMouseClicked
 
     private void BtnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBuscarActionPerformed
@@ -127,18 +129,61 @@ public class Editar extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnBuscarActionPerformed
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        // TODO add your handling code here:
+        int Id = Integer.parseInt(MostrarId.getText());
+        DatosAlumno Alumno = new DatosAlumno();
+        Consultas consul = new Consultas();
+        Alumno.setNombre(MostrarNombre.getText());
+        Alumno.setCarne(MostrarCarne.getText());
+        
+        consul.Editar(Id, Alumno);
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
     
-    public void edit(DatosAlumno Estudiante){
-        MostrarId.setText(String.valueOf(Estudiante.getId()));
-        MostrarCarne.setText(Estudiante.getCarne());
-        MostrarNombre.setText(Estudiante.getNombre());
-        MostrarCurso.setText(Estudiante.getCurso());
+    public void buscar(){
+        int Id = Integer.parseInt(TxtBuscar.getText());
+        boolean DatoEncontrado = false;
+        try{
+            
+            ConexionDB Conectar = new ConexionDB();
+            Connection Conn = Conectar.AbrirConexion();
+            
+            Consultar = Conn.prepareStatement("SELECT * FROM Estudiantes WHERE Id = ?");
+            
+            Consultar.setInt(1, Id);
+            
+            ResultSet Resultado = Consultar.executeQuery();
+            
+            while(Resultado.next()){
+                DatoEncontrado = true;
+
+                MostrarId.setText(String.valueOf(Resultado.getInt("Id")));
+                MostrarCarne.setText(Resultado.getString("Carne"));
+                MostrarNombre.setText(Resultado.getString("Nombre"));
+                MostrarCurso.setText(Resultado.getString("Curso"));
+                
+                Editar enviar = new Editar();
+                
+            }
+                
+            Conn.close();
+            
+        }catch(Exception e){
+            System.out.println("Error: "+e);
+        }
+        if(!DatoEncontrado){
+            System.out.println("Estudiante No Encontrado");
+        }
+    }
+    
+    public void limpiar(){
+        TxtBuscar.setText("");
+        MostrarId.setText("");
+        MostrarCarne.setText("");
+        MostrarNombre.setText("");
+        MostrarCurso.setText("");
     }
     /**
      * @param args the command line arguments
