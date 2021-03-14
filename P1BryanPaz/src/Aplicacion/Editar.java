@@ -47,27 +47,28 @@ public class Editar extends javax.swing.JFrame {
         MostrarCurso = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         LbCurso.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         LbCurso.setText("Curso:");
-        getContentPane().add(LbCurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, -1, -1));
+        getContentPane().add(LbCurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 350, -1, -1));
 
         MostrarId.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         MostrarId.setText("Id:");
-        getContentPane().add(MostrarId, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 110, -1, -1));
+        getContentPane().add(MostrarId, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 140, -1, -1));
 
         LbNombre.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         LbNombre.setText("Nombre:");
-        getContentPane().add(LbNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, -1, -1));
+        getContentPane().add(LbNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, -1, -1));
 
         MostrarNombre.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         MostrarNombre.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        getContentPane().add(MostrarNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, 300, 40));
+        getContentPane().add(MostrarNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 280, 300, 40));
 
         MostrarCarne.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         MostrarCarne.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        getContentPane().add(MostrarCarne, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, 300, 40));
+        getContentPane().add(MostrarCarne, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 210, 300, 40));
 
         BtnBuscar.setText("Buscar");
         BtnBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -80,15 +81,15 @@ public class Editar extends javax.swing.JFrame {
                 BtnBuscarActionPerformed(evt);
             }
         });
-        getContentPane().add(BtnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 30, 110, 50));
+        getContentPane().add(BtnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 60, 110, 50));
 
         LbCarne.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         LbCarne.setText("Carne:");
-        getContentPane().add(LbCarne, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, -1, -1));
+        getContentPane().add(LbCarne, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, -1, -1));
 
         TxtBuscar.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         TxtBuscar.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        getContentPane().add(TxtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 30, 130, 40));
+        getContentPane().add(TxtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 60, 130, 40));
 
         jButton2.setText("Actualizar");
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -101,19 +102,19 @@ public class Editar extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 380, 110, 50));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 360, 110, 50));
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jLabel5.setText("Buscar Por Id:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
 
         LbId.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         LbId.setText("Id:");
-        getContentPane().add(LbId, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, -1, -1));
+        getContentPane().add(LbId, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, -1, -1));
 
         MostrarCurso.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         MostrarCurso.setText("Curso");
-        getContentPane().add(MostrarCurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 330, -1, -1));
+        getContentPane().add(MostrarCurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 360, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

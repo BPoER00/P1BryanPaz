@@ -80,7 +80,7 @@ public class GuardarRegistros extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 330, 110, 50));
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, 110, 50));
 
         add(CmbCurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 160, 40));
     }// </editor-fold>//GEN-END:initComponents

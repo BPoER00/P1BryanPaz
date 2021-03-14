@@ -45,7 +45,7 @@ public class Opciones extends javax.swing.JFrame {
         PanelMostrar = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(576, 415));
+        setPreferredSize(new java.awt.Dimension(540, 380));
 
         PanelMostrar.setLayout(new java.awt.BorderLayout());
         getContentPane().add(PanelMostrar, java.awt.BorderLayout.CENTER);
