@@ -27,19 +27,83 @@ public class PanelArbolDatos extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        PanelDatos = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        BtnAgregar = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new java.awt.BorderLayout());
+
+        PanelDatos.setBackground(new java.awt.Color(0, 0, 0));
+        PanelDatos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        BtnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Insertar.png"))); // NOI18N
+        BtnAgregar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BtnAgregarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                BtnAgregarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                BtnAgregarMouseExited(evt);
+            }
+        });
+        jPanel2.add(BtnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(-170, 210, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        jLabel3.setText("Arboles");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, -1, -1));
+
+        PanelDatos.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-4, 0, 290, 450));
+
+        jPanel1.add(PanelDatos, java.awt.BorderLayout.LINE_START);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 290, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 450, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void BtnAgregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnAgregarMouseClicked
+        Opciones Abrir = new Opciones("Arbol");
+        Abrir.setVisible(true);
+    }//GEN-LAST:event_BtnAgregarMouseClicked
+
+    private void BtnAgregarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnAgregarMouseEntered
+        Animacion.Animacion.mover_derecha(-170, 0, 1, 2, BtnAgregar);
+    }//GEN-LAST:event_BtnAgregarMouseEntered
+
+    private void BtnAgregarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnAgregarMouseExited
+        Animacion.Animacion.mover_izquierda(0, -170, 1, 2, BtnAgregar);
+    }//GEN-LAST:event_BtnAgregarMouseExited
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel BtnAgregar;
+    private javax.swing.JPanel PanelDatos;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

@@ -13,6 +13,7 @@ public class Opciones extends javax.swing.JFrame {
 
     GuardarRegistros Guardar = new GuardarRegistros();
     MostrarRegistros Mostrar = new MostrarRegistros();
+    Arbol Arb = new Arbol();
     
     public Opciones(String Dato) {
         initComponents();
@@ -20,12 +21,17 @@ public class Opciones extends javax.swing.JFrame {
             PanelMostrar.add(Guardar);
             Guardar.setVisible(true);
             Mostrar.setVisible(false);
+            Arb.setVisible(false);
         }else if(Dato.equals("Registros")){
             PanelMostrar.add(Mostrar);
             Mostrar.setVisible(true);
             Guardar.setVisible(false);
+            Arb.setVisible(false);
         }else if(Dato.equals("Arbol")){
-            
+            PanelMostrar.add(Arb);
+            Mostrar.setVisible(false);
+            Guardar.setVisible(false);
+            Arb.setVisible(true);
         }
     }
 
